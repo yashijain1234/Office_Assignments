@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        JS Operations
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="init()">
+    <h1>Sign Up Page</h1>
+    <table>
+        <tr>
+            <td>
+                <form>
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" name="firstname" id="firstname">
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="lastname" id="lastname">
+                    </div>
+                    <div>
+                        <label>E-mail</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+                    <div>
+                        <label>Phone_No.</label>
+                        <input type="text" name="phone" id="phone">
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="pswd" id="pswd">
+                    </div>
+                    <div>
+                        <label>Confirm Password</label>
+                        <input type="password" name="repswd" id="repswd">
+                    </div>
+                    <div  class="form-action-buttons">
+                        <input type="button" value="Submit" onclick="onFormSubmit()">
+                    </div>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>E-mail</th>
+                            <th>Phn_No.</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablerows">
+                      
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+</body>
+
+</html>
