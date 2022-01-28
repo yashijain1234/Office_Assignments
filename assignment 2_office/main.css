@@ -1,0 +1,21 @@
+ #error {
+    	border: 2px solid black;
+    	display: none;
+    }
+    input{
+            background-color: white;
+            color: black;
+            height: 30px;
+            width: 200px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        h1 {
+        	font-family: algerian;
+        }
+        body {
+			background-color: lightcyan;
+			background-repeat: no-repeat;
+			background-position: right top;
+}
