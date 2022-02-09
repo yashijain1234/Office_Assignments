@@ -1,0 +1,45 @@
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 4px solid #ddd;
+  }
+  
+  /* tr:hover {background-color: yellow;} */
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+  button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: auto;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  button:hover {background-color: green}
+  
+  button:active {
+    background-color: green;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  h1,h3 {
+      font-family: algerian;
+  }
+  body {
+    background-image: url('https://www.freeiconspng.com/thumbs/rain-png/rain-png-transparent-9.png');
+  }
