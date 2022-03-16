@@ -1,0 +1,122 @@
+<AreaChart width={700} height={300} data={data} 
+                                margin={{
+                                    top: 20, right: 20, bottom: 20, left: 80,
+                                    }}>
+                            <CartesianGrid />
+                                <XAxis  />
+                                    <Area
+                                        type="monotone"
+                                        dataKey="year"
+                                        stackId="1"
+                                        stroke="black"
+                                        fill="black"
+                                        />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend verticalAlign="top" height={36}/>
+                                    <Area 
+                                        type="monotone" 
+                                        dataKey="sipStepUp"
+                                        name="Step Up Amount"
+                                        stackId="2" 
+                                        stroke="#0949b0" 
+                                        fill="#0949b0" 
+                                    />
+                                    <Area
+                                        type="monotone"
+                                        dataKey="totalInvestmentTillDate"
+                                        name="Calculated Amount"
+                                        stackId="2"
+                                        stroke="#6d8dbf"
+                                        fill="#6d8dbf"
+                                    />
+                        </AreaChart>
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import '../../media/scss/Result.scss';
+import Calculate from './Calculate';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid,Tooltip,Legend } from "recharts";
+
+function Result(props) {
+    const data= props.graphFinal;
+
+    const[change , setChange] = useState(false);
+    function changeComponent() {
+        setChange(true);
+    }
+    const money = props.monthlyInvestment;
+
+    return(
+        <div>
+            {change === false && (
+                <> 
+                    <div> 
+                        <h3 className="yaxis-design">Amount (Rs.)</h3>
+                        <h3 className="xaxis-design">Periods in Years</h3>
+                    </div>
+                
+                    <div className="display-outer-box">
+                    <LineChart width={700} height={300} data={data} 
+                                margin={{
+                                    top: 20, right: 20, bottom: 20, left: 20,
+                                    }}>
+                            <CartesianGrid />
+                                <XAxis  />
+                                    <Line
+                                        type="monotone"
+                                        dataKey="year"
+                                        stackId="1"
+                                        stroke="black"
+                                        fill="black"
+                                        />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend verticalAlign="top" height={36}/>
+                                    <Line 
+                                        type="monotone" 
+                                        dataKey="sipStepUp"
+                                        name="Step Up Amount"
+                                        stackId="2" 
+                                        stroke="#0949b0" 
+                                        fill="#0949b0" 
+                                    />
+                                    <Line
+                                        type="monotone"
+                                        dataKey="totalInvestmentTillDate"
+                                        name="Calculated Amount"
+                                        stackId="2"
+                                        stroke="#6d8dbf"
+                                        fill="#6d8dbf"
+                                    />
+                        </LineChart>
+                    </div>
+
+                    <div className="display-result-box">
+                        <p className="result-heading">Result</p>
+                        <p>If you invest Rs. <b>{(money).toLocaleString('en-IN')}/-</b> per month for a period of <b>{props.increment} years</b> with 
+                            a Step-Up of investment <b>{props.rate}%</b> per year, your SIP amount 
+                            will grow to Rs. <b>{Math.round(props.finalDataVal).toLocaleString("en-IN")}/-</b>.</p>
+                        <p className="note-design">Note: Based on monthly compounding</p>
+                    </div>
+                    <button className="recalculate-btn" onClick={changeComponent}>← Re-Calculate</button>
+                </>
+            )}
+
+            {change === true && (
+            <div>   
+                <Calculate />
+            </div> )}      
+      </div>
+    );
+ }
+export default Result;
